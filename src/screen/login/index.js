@@ -7,8 +7,9 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import CustomButton from "../components/CustomButton";
-import CustomInput from "../components/CustomInput";
+import styles from "./styles";
+import CustomButton from "../src/components/CustomButton";
+import CustomInput from "../src/components/CustomInput";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function Login({ navigation }) {
 
   const handleLogin = () => {
     if (email === "shellyneuriska@gmail.com" && password === "12345") {
-      navigation.navigate("Portofolio");
+      navigation.navigate("Home");
     }
   };
 
@@ -42,7 +43,7 @@ export default function Login({ navigation }) {
         <Text style={styles.forgot}>Lupa Password?</Text>
       </View>
       <View style={{ width: 300, marginLeft: 40 }}>
-        <Button title="Masuk" onPress={handleLogin} />
+        <Button title="Masuk" onPress={() => navigation.navigate("Home")} />
         <Text style={styles.text}>atau dengan</Text>
         <CustomButton
           title="Google"
@@ -54,7 +55,7 @@ export default function Login({ navigation }) {
         <Text style={styles.textDaftar}>Belum punya akun?</Text>
         <TouchableOpacity
           style={{ width: 50 }}
-          onPress={() => navigation.navigate("Signup")}
+          onPress={() => navigation.navigate("Register")}
         >
           <Text style={styles.daftar}>Daftar</Text>
         </TouchableOpacity>
@@ -62,67 +63,3 @@ export default function Login({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "white",
-  },
-  logo: {
-    width: 70,
-    height: 70,
-    marginLeft: 40,
-  },
-  login: {
-    fontSize: 30,
-    fontWeight: "800",
-    width: 96,
-    marginLeft: 40,
-    marginTop: 10,
-    marginBottom: 5,
-  },
-  desc: {
-    color: "lightgrey",
-    fontSize: 20,
-    fontWeight: "400",
-    marginLeft: 40,
-    marginBottom: 50,
-  },
-  input: {
-    width: 300,
-    height: 40,
-    borderColor: "lightgrey",
-    borderWidth: 1,
-    marginTop: 20,
-    paddingHorizontal: 10,
-    borderRadius: 8,
-    backgroundColor: "white",
-  },
-  forgot: {
-    color: "lightgrey",
-    width: 120,
-    marginTop: 10,
-    marginBottom: 60,
-    marginLeft: 230,
-  },
-  text: {
-    marginBottom: 15,
-    marginTop: 15,
-    textAlign: "center",
-    color: "lightgrey",
-  },
-  viewDaftar: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 1,
-    marginTop: 15,
-  },
-  textDaftar: {
-    width: 150,
-    color: "lightgrey",
-  },
-  daftar: {
-    color: "#5393F7",
-  },
-});
