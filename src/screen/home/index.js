@@ -1,23 +1,25 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  StyleSheet,
-  SafeAreaView,
-} from "react-native";
-import Styles from "./styles";
+import React from "react";
+import { View, ScrollView, SafeAreaView } from "react-native";
+import HomeList from "../../components/HomeList";
 import data from "./data";
-import Header from "../src/components/CustomHeader";
 
-export default function Home() {
+export default function Home({ navigation }) {
+  const handleNavigation = (screen) => {
+    navigation.navigate(screen);
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
         <View>
-          <Header />
-          {data.map((item) => {})}
+          {data.map((item) => (
+            <HomeList
+              key={item.id}
+              imgSource={item.img}
+              title={item.title}
+              onPress={() => handleNavigation(item.onPress)}
+            />
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>

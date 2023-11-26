@@ -8,13 +8,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from "./styles";
-import CustomButton from "../src/components/CustomButton";
-import CustomInput from "../src/components/CustomInput";
+import CustomButton from "../../components/CustomButton";
+import CustomInput from "../../components/CustomInput";
 
 export default function Register({ navigation }) {
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/logo.png")} style={styles.logo}></Image>
+      <Image
+        source={require("../../assets/logo.png")}
+        style={styles.logo}
+      ></Image>
       <Text style={styles.signup}>Sign Up</Text>
       <Text style={styles.desc}>masuk untuk melanjutkan</Text>
       <View style={{ alignItems: "center" }}>

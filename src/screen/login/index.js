@@ -3,13 +3,13 @@ import {
   View,
   Text,
   Button,
-  StyleSheet,
   Image,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import styles from "./styles";
-import CustomButton from "../src/components/CustomButton";
-import CustomInput from "../src/components/CustomInput";
+import CustomButton from "../../components/CustomButton";
+import CustomInput from "../../components/CustomInput";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -23,7 +23,10 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/logo.png")} style={styles.logo}></Image>
+      <Image
+        source={require("../../assets/logo.png")}
+        style={styles.logo}
+      ></Image>
       <Text style={styles.login}>Login</Text>
       <Text style={styles.desc}>masuk untuk melanjutkan</Text>
       <View style={{ alignItems: "center" }}>
@@ -33,7 +36,7 @@ export default function Login({ navigation }) {
           onChangeText={(text) => setEmail(text)}
           value={email}
         />
-        <CustomInput
+        <TextInput
           style={styles.input}
           placeholder="Password"
           secureTextEntry={true}
@@ -43,7 +46,7 @@ export default function Login({ navigation }) {
         <Text style={styles.forgot}>Lupa Password?</Text>
       </View>
       <View style={{ width: 300, marginLeft: 40 }}>
-        <Button title="Masuk" onPress={() => navigation.navigate("Home")} />
+        <Button title="Masuk" onPress={handleLogin} />
         <Text style={styles.text}>atau dengan</Text>
         <CustomButton
           title="Google"
