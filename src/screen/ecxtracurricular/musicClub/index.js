@@ -13,10 +13,10 @@ export default function DetailScreen({ navigation }) {
         <View style={styles.card} key={item.id}>
           <Image
             source={item.img}
-            style={[styles.image, styles.imageCenter]}
+            style={[styles.image, styles.center]}
             resizeMode="cover"
           />
-          <Text style={styles.title}>Title: {item.name}</Text>
+          <Text style={[styles.title, styles.center]}>{item.name}</Text>
           <Text>Mentor: {item.mentor}</Text>
           <Text>Schedule: {item.schedule.toLocaleDateString()}</Text>
           <Text>Quota: {item.quota}</Text>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
   },
-  imageCenter: {
+  center: {
     alignSelf: "center",
   },
   buttonContainer: {

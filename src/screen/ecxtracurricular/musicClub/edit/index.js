@@ -23,7 +23,7 @@ const EditScreen = ({ route }) => {
   const { name, mentor, schedule, quota, room } = selectedItem;
 
   const onSaveChanges = () => {
-    console.log("Changes saved!");
+    alert("Data Saved");
   };
 
   return (
